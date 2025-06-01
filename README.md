@@ -40,7 +40,7 @@
 ### 1. Клонируй репозиторий:
 
 ```bash
-git clone https://github.com/starshininkirill/z-testovoe/tree/main
+git clone https://github.com/starshininkirill/z-testovoe
 ```
 
 ### 2. Установи зависимости:
