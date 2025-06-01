@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Tender;
+use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -15,7 +17,6 @@ class TenderSeeder extends Seeder
     public function run()
     {
         $path = storage_path('app/database/test_task_data.csv');
-
 
         $data = File::get($path);
 
@@ -36,12 +37,12 @@ class TenderSeeder extends Seeder
 
 
             try {
-                $date = \Carbon\Carbon::createFromFormat('d.m.Y H:i:s', trim($date));
-            } catch (\Exception $e) {
+                $date = Carbon::createFromFormat('d.m.Y H:i:s', trim($date));
+            } catch (Exception $e) {
                 $date = now();
             }
             
-            DB::table('tenders')->insert([
+            Tender::create([
                 'name' => substr($name, 0, 400),
                 'status' => substr($status, 0, 50),
                 'number' => substr($number, 0, 50),
