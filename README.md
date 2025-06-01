@@ -85,4 +85,4 @@ http://localhost:8000/api/documentation
 
 ## 📬 Связь
 
-https://t.me/@kirill256
+https://t.me/kirill256
